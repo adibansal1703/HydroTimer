@@ -1,0 +1,6 @@
+{
+  "name": "Water Reminder",
+  "description": "An elegant full-stack hydration companion that reminds you to drink water every two hours, featuring custom intervals, a beautiful liquid progress wave, desktop notification support, sound alerts, and personalized tips powered by Gemini AI.",
+  "requestFramePermissions": ["notifications"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
