@@ -173,25 +173,25 @@ export default function TimerCard({
   const strokeDashoffset = circumference * (1 - progressRatio);
 
   return (
-    <div id="timer-settings-card" className="bg-white rounded-3xl p-6 shadow-md border border-slate-100 flex flex-col justify-between h-full relative overflow-hidden">
+    <div id="timer-settings-card" className="bg-white dark:bg-slate-900 rounded-3xl p-6 shadow-md border border-slate-100 dark:border-slate-800 flex flex-col justify-between h-full relative overflow-hidden">
       
       {/* Title Header with Sound/Notification Controls */}
       <div className="flex items-center justify-between mb-4">
         <div>
-          <h2 className="text-slate-800 font-sans font-bold text-lg">Reminder Timer</h2>
-          <p className="text-slate-400 font-sans text-xs">Stay on track, drink on time</p>
+          <h2 className="text-slate-800 dark:text-slate-100 font-sans font-bold text-lg">Reminder Timer</h2>
+          <p className="text-slate-400 dark:text-slate-400 font-sans text-xs">Stay on track, drink on time</p>
         </div>
         
         {/* Toggle Panel */}
-        <div className="flex items-center gap-1.5 bg-slate-50 p-1 rounded-xl border border-slate-100">
+        <div className="flex items-center gap-1.5 bg-slate-50 dark:bg-slate-800 p-1 rounded-xl border border-slate-100 dark:border-slate-700">
           {/* Sound Toggle */}
           <button
             id="toggle-sound-btn"
             onClick={onSoundToggle}
             className={`p-2 rounded-lg transition ${
               soundEnabled 
-                ? "bg-white text-sky-600 shadow-sm" 
-                : "text-slate-400 hover:text-slate-600"
+                ? "bg-white dark:bg-slate-700 text-sky-600 dark:text-sky-400 shadow-sm" 
+                : "text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
             }`}
             title={soundEnabled ? "Disable Sound Alarms" : "Enable Sound Alarms"}
           >
@@ -208,8 +208,8 @@ export default function TimerCard({
             }
             className={`p-2 rounded-lg transition ${
               notificationsEnabled && notificationPermission === "granted"
-                ? "bg-white text-sky-600 shadow-sm" 
-                : "text-slate-400 hover:text-slate-600"
+                ? "bg-white dark:bg-slate-700 text-sky-600 dark:text-sky-400 shadow-sm" 
+                : "text-slate-400 hover:text-slate-600 dark:text-slate-500 dark:hover:text-slate-300"
             }`}
             title={
               notificationPermission === "default"
@@ -235,7 +235,8 @@ export default function TimerCard({
               cx="88"
               cy="88"
               r={radius}
-              stroke="rgba(241, 245, 249, 1)"
+              stroke="currentColor"
+              className="text-slate-100 dark:text-slate-800"
               strokeWidth="6"
               fill="transparent"
             />
@@ -256,10 +257,10 @@ export default function TimerCard({
 
           {/* Clock Text inside circle */}
           <div className="absolute inset-0 flex flex-col items-center justify-center select-none">
-            <span className="text-3xl font-mono font-bold text-slate-800 tracking-tight">
+            <span className="text-3xl font-mono font-bold text-slate-800 dark:text-slate-100 tracking-tight">
               {formatTime(timeLeft)}
             </span>
-            <span className="text-[10px] font-sans text-slate-400 uppercase tracking-widest mt-0.5">
+            <span className="text-[10px] font-sans text-slate-400 dark:text-slate-400 uppercase tracking-widest mt-0.5">
               {isRunning ? "Counting Down" : "Paused"}
             </span>
           </div>
@@ -271,7 +272,7 @@ export default function TimerCard({
         <button
           id="reset-timer-btn"
           onClick={resetTimer}
-          className="p-3 rounded-full bg-slate-50 text-slate-500 hover:bg-slate-100 hover:text-slate-700 transition border border-slate-100"
+          className="p-3 rounded-full bg-slate-50 hover:bg-slate-100 text-slate-500 hover:text-slate-700 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-slate-300 dark:border-slate-700 dark:hover:text-slate-100 transition border border-slate-100"
           title="Reset Timer"
         >
           <RotateCcw className="w-5 h-5" />
@@ -282,7 +283,7 @@ export default function TimerCard({
           onClick={togglePlay}
           className={`p-4 rounded-full transition shadow-lg flex items-center justify-center ${
             isRunning 
-              ? "bg-slate-800 text-white hover:bg-slate-700 shadow-slate-900/10" 
+              ? "bg-slate-800 text-white hover:bg-slate-700 dark:bg-slate-700 dark:hover:bg-slate-600 shadow-slate-900/10" 
               : "bg-sky-500 text-white hover:bg-sky-600 shadow-sky-500/20"
           }`}
           title={isRunning ? "Pause Reminder" : "Start Reminder"}
@@ -293,7 +294,7 @@ export default function TimerCard({
         <button
           id="test-alert-btn"
           onClick={triggerTestAlert}
-          className="p-3 rounded-full bg-slate-50 text-sky-600 hover:bg-sky-50 transition border border-sky-100/50 group"
+          className="p-3 rounded-full bg-slate-50 hover:bg-slate-100 text-sky-600 dark:bg-slate-800 dark:hover:bg-slate-700 dark:text-sky-400 dark:border-slate-700 transition border border-sky-100/50 dark:border-sky-950 group"
           title="Trigger Demo Water Reminder Alarm"
         >
           <Sparkles className="w-5 h-5 group-hover:scale-110 transition" />
@@ -302,10 +303,10 @@ export default function TimerCard({
 
       {/* Interval Quick Settings */}
       <div>
-        <label className="text-slate-500 font-sans font-medium text-xs block mb-2">
+        <label className="text-slate-500 dark:text-slate-400 font-sans font-medium text-xs block mb-2">
           Reminder Interval
         </label>
-        <div className="grid grid-cols-4 gap-1.5">
+        <div className="grid grid-cols-4 gap-1 sm:gap-1.5">
           {[
             { label: "1m", value: 1, title: "1 Minute Demo" },
             { label: "30m", value: 30, title: "30 Minutes" },
@@ -316,10 +317,10 @@ export default function TimerCard({
               key={item.value}
               id={`interval-btn-${item.value}`}
               onClick={() => onIntervalChange(item.value)}
-              className={`py-1.5 px-1 rounded-xl text-xs font-sans font-semibold border transition ${
+              className={`py-1.5 px-0.5 sm:px-1 rounded-xl text-[10px] sm:text-xs font-sans font-semibold border transition truncate ${
                 intervalMinutes === item.value
-                  ? "bg-sky-50 border-sky-400 text-sky-600"
-                  : "bg-slate-50/50 border-slate-200/60 text-slate-500 hover:bg-slate-50 hover:text-slate-700"
+                  ? "bg-sky-50 border-sky-400 text-sky-600 dark:bg-sky-950/40 dark:border-sky-800 dark:text-sky-300"
+                  : "bg-slate-50/50 border-slate-200/60 text-slate-500 hover:bg-slate-50 hover:text-slate-700 dark:bg-slate-800/50 dark:border-slate-800 dark:text-slate-400 dark:hover:bg-slate-800 dark:hover:text-slate-200"
               }`}
               title={item.title}
             >
