@@ -52,7 +52,7 @@ export default function CoachBubble({
                 className={`flex items-center gap-1.5 sm:gap-2 p-2 sm:p-2.5 rounded-xl border text-[11px] sm:text-xs font-sans font-semibold transition min-w-0 ${
                   isSelected
                     ? `${item.color} font-bold ring-2 ring-sky-100 dark:ring-sky-950`
-                    : "bg-slate-50/50 border-slate-200/60 text-slate-500 dark:text-slate-400 hover:bg-slate-50 dark:hover:bg-slate-800 hover:text-slate-700 dark:hover:text-slate-200 border-slate-100 dark:border-slate-800"
+                    : "bg-white border-slate-200 text-slate-700 dark:bg-slate-800 dark:text-slate-300 hover:bg-slate-50 dark:hover:bg-slate-700 hover:text-slate-800 dark:hover:text-slate-200 border-slate-200 dark:border-slate-700"
                 }`}
               >
                 <Icon className={`w-3 h-3 sm:w-3.5 sm:h-3.5 flex-shrink-0 ${isSelected ? "animate-bounce" : ""}`} />

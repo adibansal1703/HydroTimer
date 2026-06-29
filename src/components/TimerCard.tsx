@@ -256,11 +256,11 @@ export default function TimerCard({
           </svg>
 
           {/* Clock Text inside circle */}
-          <div className="absolute inset-0 flex flex-col items-center justify-center select-none">
-            <span className="text-3xl font-mono font-bold text-slate-800 dark:text-slate-100 tracking-tight">
+          <div className="absolute inset-0 flex flex-col items-center justify-center select-none px-4">
+            <span className="text-2xl font-mono font-bold text-slate-800 dark:text-slate-100 tracking-tight leading-tight">
               {formatTime(timeLeft)}
             </span>
-            <span className="text-[10px] font-sans text-slate-400 dark:text-slate-400 uppercase tracking-widest mt-0.5">
+            <span className="text-[9px] font-sans text-slate-400 dark:text-slate-400 uppercase tracking-widest mt-0.5">
               {isRunning ? "Counting Down" : "Paused"}
             </span>
           </div>
@@ -338,7 +338,7 @@ export default function TimerCard({
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
-            className="absolute inset-0 bg-sky-900/90 backdrop-blur-md z-50 flex flex-col items-center justify-center p-6 text-center text-white"
+            className="absolute inset-0 bg-white/95 backdrop-blur-md z-50 flex flex-col items-center justify-center p-6 text-center text-slate-800"
           >
             {/* Visual Droplet Animation */}
             <motion.div
@@ -351,13 +351,13 @@ export default function TimerCard({
                 repeat: Infinity,
                 ease: "easeInOut"
               }}
-              className="w-16 h-16 rounded-full bg-white/20 border border-white/30 flex items-center justify-center mb-4 shadow-xl"
+              className="w-16 h-16 rounded-full bg-sky-100 border border-sky-200 flex items-center justify-center mb-4 shadow-xl"
             >
               <span className="text-4xl">💧</span>
             </motion.div>
 
-            <h3 className="font-sans font-black text-2xl tracking-tight mb-2">Time to Hydrate!</h3>
-            <p className="font-sans text-sm text-sky-200 mb-6 max-w-[220px]">
+            <h3 className="font-sans font-black text-2xl tracking-tight mb-2 text-slate-800">Time to Hydrate!</h3>
+            <p className="font-sans text-sm text-slate-500 mb-6 max-w-[220px]">
               Keep your energy and focus at peak. Take a water break right now!
             </p>
 
@@ -366,7 +366,7 @@ export default function TimerCard({
               <button
                 id="alarm-drink-btn"
                 onClick={drankFromAlert}
-                className="py-3 px-4 rounded-2xl bg-white text-sky-900 font-sans font-bold text-sm shadow-lg hover:bg-sky-50 transition active:scale-95"
+                className="py-3 px-4 rounded-2xl bg-sky-500 text-white font-sans font-bold text-sm shadow-lg hover:bg-sky-600 transition active:scale-95"
               >
                 Log standard glass (250ml)
               </button>
@@ -375,7 +375,7 @@ export default function TimerCard({
                 <button
                   id="alarm-snooze-btn"
                   onClick={snoozeAlert}
-                  className="py-2.5 px-3 rounded-xl bg-white/10 border border-white/20 text-sky-100 font-sans font-medium text-xs hover:bg-white/15 transition"
+                  className="py-2.5 px-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 font-sans font-medium text-xs hover:bg-slate-200 transition"
                 >
                   Snooze 15m
                 </button>
@@ -386,7 +386,7 @@ export default function TimerCard({
                     setIsRunning(true);
                     resetTimer();
                   }}
-                  className="py-2.5 px-3 rounded-xl bg-white/10 border border-white/20 text-sky-100 font-sans font-medium text-xs hover:bg-white/15 transition"
+                  className="py-2.5 px-3 rounded-xl bg-slate-100 border border-slate-200 text-slate-700 font-sans font-medium text-xs hover:bg-slate-200 transition"
                 >
                   Skip
                 </button>
