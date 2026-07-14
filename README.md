@@ -53,7 +53,7 @@ Many hydration applications are either too complicated or filled with unnecessar
 * React
 * TypeScript
 * Vite
-* 
+  
 ### Deployment
 
 * Vercel
